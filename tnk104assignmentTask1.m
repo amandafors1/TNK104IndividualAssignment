@@ -58,12 +58,11 @@ function project_sorting(filename)
             end
         end
     end
-    
+
     % Check if a valid ordering exists
     if length(ordering) ~= n
-        error('The project network has a cycle, no valid ordering exists.');
-    end
-    
+        fprintf('Error! The project network has a cycle, no valid ordering exists.\n');
+    else
     % Print order of subtasks
     fprintf('One possible ordering of subtasks: ');
     fprintf('%d ', ordering);
@@ -78,4 +77,6 @@ function project_sorting(filename)
     labelnode(h, 1:numnodes(G), G.Nodes.Name);
     title('Project Network (subtasks and precedence)');
 
+    end
+    
 end
